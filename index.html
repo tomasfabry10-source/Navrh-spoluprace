@@ -124,35 +124,52 @@
         }
 
         .circle {
-            width: 90px;
-            height: 90px;
+            width: 95px;
+            height: 95px;
             border-radius: 50%;
             background: #FFFFFF;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             justify-content: center;
             align-items: center;
             margin-bottom: 8px;
             border: none;
+            position: relative;
+        }
+
+        .circle-input-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
         }
 
         .circle input[type="number"] {
-            width: 45px;
+            width: 50px;
             border: none;
             background: transparent;
-            font-size: 22px;
+            font-size: 28px; /* Zvětšené písmo v kolečku */
             font-weight: 900;
             color: var(--cc-red);
-            text-align: center;
+            text-align: right;
             outline: none;
+            padding: 0;
+            margin: 0;
+            -moz-appearance: textfield;
+        }
+        
+        .circle input[type="number"]::-webkit-outer-spin-button,
+        .circle input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
         }
 
         .circle .percent-sign {
-            font-size: 14px;
-            font-weight: 700;
+            font-size: 24px; /* Zvětšené procento */
+            font-weight: 900;
             color: var(--cc-red);
-            margin-top: -3px;
+            margin-left: 1px; /* Těsně za číslovkou */
         }
 
         .input-line {
@@ -400,8 +417,8 @@
                 background: var(--cc-red) !important;
             }
             .circle {
-                box-shadow: none !important;
                 background: #FFFFFF !important;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23) !important;
             }
             .input-line {
                 color: #FFFFFF !important;
@@ -445,40 +462,50 @@
                     <div class="circle-card">
                         <div class="circle-label">Nealko do 1L</div>
                         <div class="circle">
-                            <input type="number" id="perc-nealko-do1" value="0" min="0" max="100" oninput="calculate()">
-                            <div class="percent-sign">%</div>
+                            <div class="circle-input-wrapper">
+                                <input type="number" id="perc-nealko-do1" value="0" min="0" max="100" oninput="calculate()">
+                                <div class="percent-sign">%</div>
+                            </div>
                         </div>
                         <input type="number" id="vol-nealko-do1" class="input-line" placeholder="Roční odběr (Kč)" oninput="calculate()">
                     </div>
                     <div class="circle-card">
                         <div class="circle-label">Nealko 1L</div>
                         <div class="circle">
-                            <input type="number" id="perc-nealko-1l" value="0" min="0" max="100" oninput="calculate()">
-                            <div class="percent-sign">%</div>
+                            <div class="circle-input-wrapper">
+                                <input type="number" id="perc-nealko-1l" value="0" min="0" max="100" oninput="calculate()">
+                                <div class="percent-sign">%</div>
+                            </div>
                         </div>
                         <input type="number" id="vol-nealko-1l" class="input-line" placeholder="Roční odběr (Kč)" oninput="calculate()">
                     </div>
                     <div class="circle-card">
                         <div class="circle-label">Nealko nad 1L</div>
                         <div class="circle">
-                            <input type="number" id="perc-nealko-nad1" value="0" min="0" max="100" oninput="calculate()">
-                            <div class="percent-sign">%</div>
+                            <div class="circle-input-wrapper">
+                                <input type="number" id="perc-nealko-nad1" value="0" min="0" max="100" oninput="calculate()">
+                                <div class="percent-sign">%</div>
+                            </div>
                         </div>
                         <input type="number" id="vol-nealko-nad1" class="input-line" placeholder="Roční odběr (Kč)" oninput="calculate()">
                     </div>
                     <div class="circle-card">
                         <div class="circle-label">BIB Postmix</div>
                         <div class="circle">
-                            <input type="number" id="perc-bib" value="0" min="0" max="100" oninput="calculate()">
-                            <div class="percent-sign">%</div>
+                            <div class="circle-input-wrapper">
+                                <input type="number" id="perc-bib" value="0" min="0" max="100" oninput="calculate()">
+                                <div class="percent-sign">%</div>
+                            </div>
                         </div>
                         <input type="number" id="vol-bib" class="input-line" placeholder="Roční odběr (Kč)" oninput="calculate()">
                     </div>
                     <div class="circle-card">
                         <div class="circle-label">Káva</div>
                         <div class="circle">
-                            <input type="number" id="perc-kava" value="0" min="0" max="100" oninput="calculate()">
-                            <div class="percent-sign">%</div>
+                            <div class="circle-input-wrapper">
+                                <input type="number" id="perc-kava" value="0" min="0" max="100" oninput="calculate()">
+                                <div class="percent-sign">%</div>
+                            </div>
                         </div>
                         <input type="number" id="vol-kava" class="input-line" placeholder="Roční odběr (Kč)" oninput="calculate()">
                     </div>
