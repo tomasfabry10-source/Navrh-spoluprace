@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Návrh Spolupráce - Coca-Cola</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap');
 
         :root {
             --cc-red: #F40009;
@@ -28,7 +28,6 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* ----- UI CONTROLS (Hide on print) ----- */
         .controls {
             position: fixed;
             top: 20px;
@@ -51,42 +50,16 @@
 
         .btn-print:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(244, 0, 9, 0.6);
         }
 
         /* ----- MAIN DOCUMENT ----- */
         .document {
-            width: 297mm; /* A4 Landscape width */
-            min-height: 210mm; /* A4 Landscape height */
-            margin: 40px auto;
+            width: 297mm;
+            min-height: 209mm;
+            margin: 10px auto;
             background: var(--card-bg);
-            padding: 15mm;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-            border-radius: 12px;
+            padding: 15px 25px;
             position: relative;
-            overflow: hidden;
-        }
-
-        /* Futuristic background accent */
-        .document::before {
-            content: '';
-            position: absolute;
-            top: -150px;
-            right: -150px;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(244,0,9,0.1) 0%, rgba(255,255,255,0) 70%);
-            border-radius: 50%;
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        .content-wrapper {
-            position: relative;
-            z-index: 1;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
         }
 
         header {
@@ -94,15 +67,14 @@
             justify-content: space-between;
             align-items: center;
             border-bottom: 2px solid #EAEAEA;
-            padding-bottom: 20px;
-            margin-bottom: 30px;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
         }
 
         header h1 {
-            font-size: 32px;
+            font-size: 24px;
             font-weight: 900;
             letter-spacing: -1px;
-            color: var(--dark);
             text-transform: uppercase;
         }
 
@@ -112,18 +84,25 @@
 
         .logo-placeholder {
             font-weight: 900;
-            font-size: 28px;
+            font-size: 22px;
             color: var(--cc-red);
             font-style: italic;
             letter-spacing: -1px;
         }
 
-        /* ----- CIRCLES SECTION ----- */
+        /* ----- CIRCLES SECTION (RED BACKGROUND) ----- */
+        .circles-container {
+            background: var(--cc-red);
+            border-radius: 14px;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 6px 20px rgba(244, 0, 9, 0.15);
+        }
+
         .circles-grid {
             display: flex;
             justify-content: space-between;
-            gap: 15px;
-            margin-bottom: 40px;
+            gap: 10px;
         }
 
         .circle-card {
@@ -133,114 +112,111 @@
             flex: 1;
         }
 
+        .circle-label {
+            font-weight: 800;
+            font-size: 12px;
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 8px;
+            color: #FFFFFF;
+            letter-spacing: 0.5px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
         .circle {
-            width: 120px;
-            height: 120px;
+            width: 90px;
+            height: 90px;
             border-radius: 50%;
             background: #FFFFFF;
-            box-shadow: 8px 8px 16px #E0E0E0, -8px -8px 16px #FFFFFF; /* Neumorphism */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            margin-bottom: 15px;
-            border: 2px solid transparent;
-            transition: border 0.3s;
-        }
-        
-        .circle:focus-within {
-            border: 2px solid var(--cc-red);
+            margin-bottom: 8px;
+            border: none;
         }
 
         .circle input[type="number"] {
-            width: 60px;
+            width: 45px;
             border: none;
             background: transparent;
-            font-size: 28px;
+            font-size: 22px;
             font-weight: 900;
             color: var(--cc-red);
             text-align: center;
             outline: none;
-            -moz-appearance: textfield;
-        }
-        .circle input[type="number"]::-webkit-outer-spin-button,
-        .circle input[type="number"]::-webkit-inner-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
         }
 
         .circle .percent-sign {
-            font-size: 20px;
+            font-size: 14px;
             font-weight: 700;
             color: var(--cc-red);
-            margin-top: -5px;
-        }
-
-        .circle-label {
-            font-weight: 700;
-            font-size: 14px;
-            text-transform: uppercase;
-            text-align: center;
-            margin-bottom: 8px;
-            color: var(--dark);
+            margin-top: -3px;
         }
 
         .input-line {
-            width: 100%;
-            padding: 8px;
+            width: 85%;
+            padding: 4px;
             border: none;
-            border-bottom: 2px solid #EAEAEA;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.6);
             background: transparent;
             text-align: center;
-            font-size: 14px;
-            font-weight: 500;
+            font-size: 12px;
             outline: none;
-            transition: border-color 0.3s;
-        }
-        .input-line:focus {
-            border-bottom-color: var(--dark);
+            color: #FFFFFF;
+            font-weight: 500;
         }
         .input-line::placeholder {
-            color: var(--grey);
-            font-weight: 300;
+            color: rgba(255, 255, 255, 0.7);
         }
 
-        /* ----- BOTTOM LAYOUT ----- */
-        .bottom-layout {
+        /* ----- MIDDLE LAYOUT: Dashboard & Support side-by-side ----- */
+        .middle-layout {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 40px;
+            gap: 25px;
+            margin-bottom: 15px;
+            align-items: stretch;
         }
 
-        /* ----- DASHBOARD ----- */
+        /* ----- UKAZATEL VÝNOSU ----- */
         .dashboard {
             background: var(--dark);
-            border-radius: 16px;
-            padding: 25px;
+            border-radius: 14px;
+            padding: 12px 18px;
             color: white;
-            box-shadow: 0 15px 35px rgba(18, 18, 18, 0.2);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .dash-title {
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 20px;
+            font-size: 13px;
+            font-weight: 800;
+            margin-bottom: 8px;
             color: var(--grey);
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
+        }
+
+        .dash-rows {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
         }
 
         .dash-row {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 12px;
-            font-size: 15px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            padding-bottom: 8px;
+            font-size: 12px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            padding-bottom: 4px;
         }
 
-        .dash-row:last-of-type {
-            border-bottom: none;
+        .dash-row.disabled {
+            color: var(--grey);
         }
 
         .dash-val {
@@ -248,79 +224,37 @@
         }
 
         .dash-total {
-            margin-top: 20px;
+            margin-top: 8px;
             background: var(--cc-red);
-            padding: 15px 20px;
-            border-radius: 10px;
+            padding: 8px 12px;
+            border-radius: 8px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
         
         .dash-total .lbl {
-            font-size: 16px;
+            font-size: 12px;
             font-weight: 700;
         }
         .dash-total .val {
-            font-size: 24px;
+            font-size: 16px;
             font-weight: 900;
         }
 
-        /* ----- OPTIONAL FIELDS ----- */
-        .optional-section {
-            margin-top: 25px;
-        }
-        
-        .opt-row {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 12px;
-            background: #F4F4F6;
-            padding: 10px 15px;
-            border-radius: 8px;
-            transition: opacity 0.3s;
-        }
-
-        .opt-lbl {
-            font-weight: 700;
-            font-size: 14px;
-            min-width: 120px;
-        }
-
-        .opt-input {
-            border: 1px solid #D1D1D6;
-            border-radius: 6px;
-            padding: 6px 10px;
-            font-size: 14px;
-            outline: none;
-            width: 100px;
-        }
-        
-        .opt-input-text {
-            border: 1px solid #D1D1D6;
-            border-radius: 6px;
-            padding: 6px 10px;
-            font-size: 14px;
-            outline: none;
-            flex-grow: 1;
-        }
-
-        select.opt-input {
-            width: 130px;
-        }
-
-        /* ----- SUPPORT TEXT ----- */
+        /* ----- PODPORA SPOLUPRÁCE (RIGHT SIDE) ----- */
         .support-box {
-            padding: 20px;
-            border-left: 4px solid var(--cc-red);
-            background: #FAFAFA;
+            padding: 8px 0 8px 12px;
+            border-left: 3px solid var(--cc-red);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .support-box h3 {
-            font-size: 16px;
+            font-size: 12px;
             font-weight: 900;
-            margin-bottom: 15px;
+            margin-bottom: 6px;
             text-transform: uppercase;
         }
 
@@ -330,11 +264,11 @@
 
         .support-list li {
             position: relative;
-            padding-left: 20px;
-            margin-bottom: 10px;
-            font-size: 13px;
+            padding-left: 10px;
+            margin-bottom: 4px;
+            font-size: 10.5px;
             font-weight: 500;
-            line-height: 1.4;
+            line-height: 1.25;
         }
 
         .support-list li::before {
@@ -343,73 +277,151 @@
             left: 0;
             color: var(--cc-red);
             font-weight: bold;
-            font-size: 18px;
-            top: -2px;
         }
 
         .payment-cond {
-            margin-top: 20px;
-            background: rgba(244,0,9,0.05);
-            padding: 12px;
-            border-radius: 6px;
-            font-size: 12px;
+            margin-top: 6px;
+            background: rgba(244,0,9,0.04);
+            padding: 5px 8px;
+            border-radius: 4px;
+            font-size: 9.5px;
             font-weight: 700;
-            color: var(--dark);
+            line-height: 1.25;
         }
         
         .payment-cond span {
             color: var(--cc-red);
         }
 
+        /* ----- BOTTOM LAYOUT: Dodatečné bonusy ----- */
+        .bottom-layout {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .optional-section-title {
+            font-size: 13px;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 2px;
+            letter-spacing: 0.5px;
+        }
+
+        .bonus-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+        }
+
+        .opt-row {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            background: #F4F4F6;
+            padding: 10px 12px;
+            border-radius: 8px;
+        }
+
+        .opt-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .opt-lbl {
+            font-weight: 800;
+            font-size: 11px;
+            color: var(--cc-red);
+            text-transform: uppercase;
+        }
+
+        .opt-controls {
+            display: flex;
+            gap: 6px;
+        }
+
+        .opt-input {
+            border: 1px solid #D1D1D6;
+            border-radius: 4px;
+            padding: 3px 6px;
+            font-size: 11px;
+            width: 75px;
+            background: #FFFFFF;
+        }
+        
+        .opt-input-text {
+            border: 1px solid #D1D1D6;
+            border-radius: 4px;
+            padding: 4px 6px;
+            font-size: 11px;
+            width: 100%;
+            background: #FFFFFF;
+        }
+
+        select.opt-input {
+            width: 100px;
+        }
+        
+        #row-ufm {
+            background: #FEE8E9;
+        }
+        #row-ufm .opt-lbl {
+            color: var(--dark);
+        }
+
         /* ----- PRINT STYLES ----- */
         @media print {
             @page {
                 size: A4 landscape;
-                margin: 10mm 15mm;
+                margin: 0;
             }
             body {
                 background: white;
+                margin: 0;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
             }
-            .controls {
-                display: none;
+            .controls, header {
+                display: none !important;
             }
             .document {
-                width: 100%;
+                width: 297mm;
+                height: 209mm;
                 margin: 0;
-                padding: 0;
+                padding: 12mm 15mm;
                 box-shadow: none;
-                border-radius: 0;
+                border: none;
                 background: white;
+                page-break-after: avoid;
+                page-break-before: avoid;
+            }
+            .circles-container {
+                background: var(--cc-red) !important;
+            }
+            .circle {
+                box-shadow: none !important;
+                background: #FFFFFF !important;
+            }
+            .input-line {
+                color: #FFFFFF !important;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.6) !important;
+            }
+            .input-line::placeholder, .opt-input-text::placeholder {
+                color: transparent !important;
+            }
+            .opt-input, .opt-input-text {
+                border: none !important;
+                background: transparent !important;
+                padding: 0 !important;
+                box-shadow: none !important;
+            }
+            select.opt-input {
+                appearance: none;
+                -webkit-appearance: none;
             }
             .hide-in-print {
                 display: none !important;
-            }
-            .circle {
-                box-shadow: 4px 4px 8px #E0E0E0, -4px -4px 8px #FFFFFF;
-            }
-            .input-line::placeholder {
-                color: transparent; /* Hide placeholders in PDF */
-            }
-        }
-        
-        /* Mobile fallback for viewing */
-        @media (max-width: 900px) {
-            .document {
-                width: 100%;
-                min-height: auto;
-                padding: 20px;
-                margin: 10px auto;
-            }
-            .circles-grid {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            .circle-card {
-                flex: 0 0 45%;
-                margin-bottom: 20px;
-            }
-            .bottom-layout {
-                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -427,60 +439,57 @@
                 <div class="logo-placeholder">Coca-Cola</div>
             </header>
 
-            <div class="circles-grid">
-                <!-- Nealko do 1L -->
-                <div class="circle-card">
-                    <div class="circle-label">Nealko do 1L</div>
-                    <div class="circle">
-                        <input type="number" id="perc-nealko-do1" value="0" min="0" max="100" oninput="calculate()">
-                        <div class="percent-sign">%</div>
+            <!-- 5 CRICLES SECTION WITH RED BACKGROUND -->
+            <div class="circles-container">
+                <div class="circles-grid">
+                    <div class="circle-card">
+                        <div class="circle-label">Nealko do 1L</div>
+                        <div class="circle">
+                            <input type="number" id="perc-nealko-do1" value="0" min="0" max="100" oninput="calculate()">
+                            <div class="percent-sign">%</div>
+                        </div>
+                        <input type="number" id="vol-nealko-do1" class="input-line" placeholder="Roční odběr (Kč)" oninput="calculate()">
                     </div>
-                    <input type="number" id="vol-nealko-do1" class="input-line calc-vol nealko-vol" placeholder="Roční odběr (Kč)" oninput="calculate()">
-                </div>
-                <!-- Nealko 1L -->
-                <div class="circle-card">
-                    <div class="circle-label">Nealko 1L</div>
-                    <div class="circle">
-                        <input type="number" id="perc-nealko-1l" value="0" min="0" max="100" oninput="calculate()">
-                        <div class="percent-sign">%</div>
+                    <div class="circle-card">
+                        <div class="circle-label">Nealko 1L</div>
+                        <div class="circle">
+                            <input type="number" id="perc-nealko-1l" value="0" min="0" max="100" oninput="calculate()">
+                            <div class="percent-sign">%</div>
+                        </div>
+                        <input type="number" id="vol-nealko-1l" class="input-line" placeholder="Roční odběr (Kč)" oninput="calculate()">
                     </div>
-                    <input type="number" id="vol-nealko-1l" class="input-line calc-vol nealko-vol" placeholder="Roční odběr (Kč)" oninput="calculate()">
-                </div>
-                <!-- Nealko nad 1L -->
-                <div class="circle-card">
-                    <div class="circle-label">Nealko nad 1L</div>
-                    <div class="circle">
-                        <input type="number" id="perc-nealko-nad1" value="0" min="0" max="100" oninput="calculate()">
-                        <div class="percent-sign">%</div>
+                    <div class="circle-card">
+                        <div class="circle-label">Nealko nad 1L</div>
+                        <div class="circle">
+                            <input type="number" id="perc-nealko-nad1" value="0" min="0" max="100" oninput="calculate()">
+                            <div class="percent-sign">%</div>
+                        </div>
+                        <input type="number" id="vol-nealko-nad1" class="input-line" placeholder="Roční odběr (Kč)" oninput="calculate()">
                     </div>
-                    <input type="number" id="vol-nealko-nad1" class="input-line calc-vol nealko-vol" placeholder="Roční odběr (Kč)" oninput="calculate()">
-                </div>
-                <!-- BIB Postmix -->
-                <div class="circle-card">
-                    <div class="circle-label">BIB Postmix</div>
-                    <div class="circle">
-                        <input type="number" id="perc-bib" value="0" min="0" max="100" oninput="calculate()">
-                        <div class="percent-sign">%</div>
+                    <div class="circle-card">
+                        <div class="circle-label">BIB Postmix</div>
+                        <div class="circle">
+                            <input type="number" id="perc-bib" value="0" min="0" max="100" oninput="calculate()">
+                            <div class="percent-sign">%</div>
+                        </div>
+                        <input type="number" id="vol-bib" class="input-line" placeholder="Roční odběr (Kč)" oninput="calculate()">
                     </div>
-                    <input type="number" id="vol-bib" class="input-line calc-vol nealko-vol" placeholder="Roční odběr (Kč)" oninput="calculate()">
-                </div>
-                <!-- Káva -->
-                <div class="circle-card">
-                    <div class="circle-label">Káva</div>
-                    <div class="circle">
-                        <input type="number" id="perc-kava" value="0" min="0" max="100" oninput="calculate()">
-                        <div class="percent-sign">%</div>
+                    <div class="circle-card">
+                        <div class="circle-label">Káva</div>
+                        <div class="circle">
+                            <input type="number" id="perc-kava" value="0" min="0" max="100" oninput="calculate()">
+                            <div class="percent-sign">%</div>
+                        </div>
+                        <input type="number" id="vol-kava" class="input-line" placeholder="Roční odběr (Kč)" oninput="calculate()">
                     </div>
-                    <input type="number" id="vol-kava" class="input-line calc-vol kava-vol" placeholder="Roční odběr (Kč)" oninput="calculate()">
                 </div>
             </div>
 
-            <div class="bottom-layout">
-                <!-- LEVÝ SLOUPEC: Výnos a Bonusy -->
-                <div class="left-col">
-                    <div class="dashboard">
-                        <div class="dash-title">Ukazatel výnosu</div>
-                        
+            <!-- MIDDLE LAYOUT (DASHBOARD & SUPPORT SIDE-BY-SIDE) -->
+            <div class="middle-layout">
+                <div class="dashboard">
+                    <div class="dash-title">Ukazatel výnosu</div>
+                    <div class="dash-rows">
                         <div class="dash-row">
                             <span>Předpokládaný obrat (Nealko)</span>
                             <span class="dash-val" id="out-obrat-nealko">0 Kč</span>
@@ -489,74 +498,84 @@
                             <span>Předpokládaný obrat (Káva)</span>
                             <span class="dash-val" id="out-obrat-kava">0 Kč</span>
                         </div>
-                        <div class="dash-row">
-                            <span style="color:var(--grey)">Celkový předpokládaný obrat</span>
-                            <span class="dash-val" style="color:var(--grey)" id="out-obrat-celkem">0 Kč</span>
-                        </div>
-                        
-                        <div class="dash-total">
-                            <span class="lbl">Celkový výnos pro zákazníka</span>
-                            <span class="val" id="out-vynos-celkem">0 Kč</span>
+                        <div class="dash-row disabled">
+                            <span>Celkový předpokládaný obrat</span>
+                            <span class="dash-val" id="out-obrat-celkem">0 Kč</span>
                         </div>
                     </div>
-
-                    <div class="optional-section">
-                        <!-- Zboží zdarma -->
-                        <div class="opt-row" id="row-zbozi">
-                            <div class="opt-lbl">Zboží zdarma</div>
-                            <input type="number" id="zbozi-val" class="opt-input" placeholder="Hodnota (Kč)" oninput="calculate()">
-                            <select id="zbozi-freq" class="opt-input">
-                                <option value="Jednorázově">Jednorázově</option>
-                                <option value="Ročně">Ročně</option>
-                            </select>
-                            <input type="text" id="zbozi-reason" class="opt-input-text" placeholder="Za co bude vyplaceno?">
-                        </div>
-                        
-                        <!-- Horeka odměna -->
-                        <div class="opt-row" id="row-horeka">
-                            <div class="opt-lbl">Horeka odměna</div>
-                            <input type="number" id="horeka-val" class="opt-input" placeholder="Hodnota (Kč)" oninput="calculate()">
-                            <select id="horeka-freq" class="opt-input">
-                                <option value="Jednorázově">Jednorázově</option>
-                                <option value="Ročně">Ročně</option>
-                            </select>
-                            <input type="text" id="horeka-reason" class="opt-input-text" placeholder="Za co bude vyplaceno?">
-                        </div>
-
-                        <!-- UFM -->
-                        <div class="opt-row" id="row-ufm">
-                            <div class="opt-lbl">UFM bonus (předem)</div>
-                            <input type="number" id="ufm-val" class="opt-input" placeholder="Hodnota (Kč)" oninput="calculate()">
-                        </div>
+                    <div class="dash-total">
+                        <span class="lbl">Celkový výnos pro zákazníka</span>
+                        <span class="val" id="out-vynos-celkem">0 Kč</span>
                     </div>
                 </div>
 
-                <!-- PRAVÝ SLOUPEC: Podpora -->
-                <div class="right-col">
-                    <div class="support-box">
-                        <h3>Podpora spolupráce</h3>
-                        <ul class="support-list">
-                            <li>Kompletní sortiment od jednoho dodavatele</li>
-                            <li>Lednice úspornější až o 40%</li>
-                            <li>Nové pákové kávovary a automaty na kávu</li>
-                            <li>Objednávky pohodlně přes webový portál nebo aplikaci</li>
-                            <li>Pravidelné akční nabídky našich produktů</li>
-                            <li>MKT a POP materiál (pokud je skladem) po dohodě s obchodním zástupcem</li>
-                        </ul>
-
-                        <div class="payment-cond">
-                            PLATBA FAKTUROU PŘI SPLNĚNÍ PODMÍNEK:<br>
-                            podepsaná smlouva + 3 hotovostní objednávky<br>
-                            <span>(PŘI PRODLENÍ S PLATBOU AUTOMATICKY PŘEVOD NA HOTOVOST)</span>
-                        </div>
+                <div class="support-box">
+                    <h3>Podpora spolupráce</h3>
+                    <ul class="support-list">
+                        <li>Kompletní sortiment od jednoho dodavatele</li>
+                        <li>Lednice úspornější až o 40%</li>
+                        <li>Nové pákové kávovary a automaty na kávu</li>
+                        <li>Objednávky pohodlně přes webový portál nebo aplikaci</li>
+                        <li>Pravidelné akční nabídky našich produktů</li>
+                        <li>MKT a POP materiál (pokud je skladem) po dohodě s obch. zástupcem</li>
+                    </ul>
+                    <div class="payment-cond">
+                        PLATBA FAKTUROU PŘI SPLNĚNÍ PODMÍNEK:<br>
+                        podepsaná smlouva + 3 hotovostní objednávky<br>
+                        <span>(PŘI PRODLENÍ S PLATBOU AUTOMATICKY PŘEVOD NA HOTOVOST)</span>
                     </div>
+                </div>
+            </div>
+
+            <!-- BOTTOM LAYOUT: DODATEČNÉ BONUSY UNDERNEATH HORIZONTALLY -->
+            <div class="bottom-layout">
+                <div class="optional-section-title">Dodatečné bonusy</div>
+                <div class="bonus-grid">
+                    
+                    <div class="opt-row" id="row-zbozi">
+                        <div class="opt-header">
+                            <div class="opt-lbl">Zboží zdarma</div>
+                            <div class="opt-controls">
+                                <input type="number" id="zbozi-val" class="opt-input" placeholder="Kč" oninput="calculate()">
+                                <select id="zbozi-freq" class="opt-input">
+                                    <option value="Jednorázově">Jednorázově</option>
+                                    <option value="Ročně">Ročně</option>
+                                </select>
+                            </div>
+                        </div>
+                        <input type="text" id="zbozi-reason" class="opt-input-text" placeholder="Za co bude vyplaceno?">
+                    </div>
+                    
+                    <div class="opt-row" id="row-horeka">
+                        <div class="opt-header">
+                            <div class="opt-lbl">Horeka odměna</div>
+                            <div class="opt-controls">
+                                <input type="number" id="horeka-val" class="opt-input" placeholder="Kč" oninput="calculate()">
+                                <select id="horeka-freq" class="opt-input">
+                                    <option value="Jednorázově">Jednorázově</option>
+                                    <option value="Ročně">Ročně</option>
+                                </select>
+                            </div>
+                        </div>
+                        <input type="text" id="horeka-reason" class="opt-input-text" placeholder="Za co bude vyplaceno?">
+                    </div>
+
+                    <div class="opt-row" id="row-ufm">
+                        <div class="opt-header">
+                            <div class="opt-lbl">UFM bonus (předem)</div>
+                            <div class="opt-controls">
+                                <input type="number" id="ufm-val" class="opt-input" placeholder="Kč" oninput="calculate()">
+                            </div>
+                        </div>
+                        <div style="font-size: 10px; color: var(--grey); margin-top: 2px;">Nezapočítává se do celkového výnosu zákazníka</div>
+                    </div>
+
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        // Format number to currency format (e.g. 1 000 000 Kč)
         const formatMoney = (amount) => {
             return Math.round(amount).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " Kč";
         };
@@ -567,7 +586,6 @@
         };
 
         function calculate() {
-            // Arrays of IDs
             const nealkoIds = [
                 {p: 'perc-nealko-do1', v: 'vol-nealko-do1'},
                 {p: 'perc-nealko-1l', v: 'vol-nealko-1l'},
@@ -591,15 +609,8 @@
             const usporaKava = volKava * (percKava / 100);
 
             const obratCelkem = obratNealko + obratKava;
-            
-            const bonusZbozi = getVal('zbozi-val');
-            const bonusHoreka = getVal('horeka-val');
-            const bonusUfm = getVal('ufm-val');
-            const bonusCelkem = bonusZbozi + bonusHoreka + bonusUfm;
+            const vynosCelkem = usporaNealko + usporaKava;
 
-            const vynosCelkem = usporaNealko + usporaKava + bonusCelkem;
-
-            // Update DOM
             document.getElementById('out-obrat-nealko').textContent = formatMoney(obratNealko);
             document.getElementById('out-obrat-kava').textContent = formatMoney(obratKava);
             document.getElementById('out-obrat-celkem').textContent = formatMoney(obratCelkem);
@@ -607,7 +618,6 @@
         }
 
         function generatePDF() {
-            // Zkontrolovat a skrýt prázdná volitelná pole
             const optionalFields = ['zbozi', 'horeka', 'ufm'];
             
             optionalFields.forEach(field => {
@@ -620,41 +630,15 @@
                 }
             });
 
-            // Připravit hezčí zobrazení inputů pro tisk (aby nebyly vidět rámečky inputů textu)
-            const textInputs = document.querySelectorAll('.opt-input-text');
-            textInputs.forEach(inp => {
-                inp.style.border = 'none';
-                inp.style.background = 'transparent';
-            });
-            const selectInputs = document.querySelectorAll('.opt-input');
-            selectInputs.forEach(inp => {
-                inp.style.border = 'none';
-                inp.style.background = 'transparent';
-                inp.style.webkitAppearance = 'none';
-                inp.style.appearance = 'none';
-            });
-
             window.print();
 
-            // Vrátit styly zpět
             setTimeout(() => {
-                textInputs.forEach(inp => {
-                    inp.style.border = '';
-                    inp.style.background = '';
-                });
-                selectInputs.forEach(inp => {
-                    inp.style.border = '';
-                    inp.style.background = '';
-                    inp.style.webkitAppearance = '';
-                    inp.style.appearance = '';
-                });
                 optionalFields.forEach(field => {
                     document.getElementById('row-' + field).classList.remove('hide-in-print');
                 });
             }, 1000);
         }
 
-        // Init calc
         calculate();
     </script>
 </body>
